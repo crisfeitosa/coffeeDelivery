@@ -10,6 +10,7 @@ import { Badge } from "@components/Badge";
 
 import { useTheme } from "styled-components/native";
 import { City, Container, Location } from "./styles";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const ContainerAnimated = Animated.createAnimatedComponent(Container);
 const CityTextAnimated = Animated.createAnimatedComponent(City);
@@ -26,13 +27,13 @@ export function HomeHeader({style, introContainerPosition = undefined, shownBack
   const navigation = useNavigation();
 
   const insets = useSafeAreaInsets();
-  const paddingTop = insets.top + 32;
+  const paddingTop = insets.top;
 
   const cityTextAnimatedStyles = useAnimatedStyle(() => {
     return {
       color: introContainerPosition && interpolateColor(introContainerPosition.value, [0, -180], [COLORS.GRAY_900, COLORS.GRAY_200]),
     }
-  })
+  });
 
   function handleNavigateToCart() {
     navigation.navigate('cart')
@@ -48,17 +49,17 @@ export function HomeHeader({style, introContainerPosition = undefined, shownBack
           <IconButton 
             onPress={navigation.goBack}
             icon={ArrowLeft} 
-            size={24} 
+            size={RFValue(24)} 
             color={COLORS.WHITE} 
             weight="regular"
           />
         </Animated.View>
       ) : (
       <Location>
-        <MapPin weight="fill" size={20} color={COLORS.PURPLE} />
+        <MapPin weight="fill" size={RFValue(20)} color={COLORS.PURPLE} />
 
         <CityTextAnimated style={cityTextAnimatedStyles}>
-          Santa Inês, BA
+          Fortaleza, CE
         </CityTextAnimated>
       </Location>
     )}
@@ -66,7 +67,7 @@ export function HomeHeader({style, introContainerPosition = undefined, shownBack
     <Animated.View sharedTransitionTag="headerHeightAnimateTag">
       <IconButton
         icon={ShoppingCart} 
-        size={20} 
+        size={RFValue(20)} 
         color={shownBackButton ? COLORS.WHITE : COLORS.YELLOW_DARK} 
         onPress={handleNavigateToCart}
       >

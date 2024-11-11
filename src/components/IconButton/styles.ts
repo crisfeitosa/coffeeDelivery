@@ -1,10 +1,11 @@
+import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
 export const Container = styled.TouchableOpacity`
-  height: 36px;
-  width: 36px;
+  height: ${RFValue(36)}px;
+  width: ${RFValue(36)}px;
 
-  border-radius: 6px;
+  border-radius: ${RFValue(6)}px;
 
   align-items: center;
   justify-content: center;
