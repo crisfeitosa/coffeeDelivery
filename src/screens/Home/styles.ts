@@ -31,3 +31,24 @@ export const IntroImage = styled.Image`
   width: ${RFValue(83)}px;
   height: ${RFValue(83)}px;
 `;
+
+export const CoffeeFilterContainer = styled.View`
+  padding: ${RFValue(16)}px ${RFValue(32)}px;
+  gap: ${RFValue(12)}px;
+`;
+
+export const CoffeeFilterTitle = styled.Text`
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_300};
+    font-family: ${theme.FONT_FAMILY.BALOO_2.BOLD};
+    font-size: ${RFValue(theme.FONT_SIZE.BALOO_2.SM)}px;
+  `}
+`;
+
+export const SectionTitle = styled.Text`
+  ${({ theme }) => css`
+    color: ${theme.COLORS.GRAY_400};
+    font-family: ${theme.FONT_FAMILY.BALOO_2.BOLD};
+    font-size: ${RFValue(theme.FONT_SIZE.BALOO_2.XS)}px;
+  `}
+`;
