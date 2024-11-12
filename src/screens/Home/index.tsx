@@ -1,4 +1,4 @@
-import { SafeAreaView } from 'react-native';
+import { ImageSourcePropType, SafeAreaView } from 'react-native';
 import Animated, { interpolate, useAnimatedStyle, useSharedValue, interpolateColor, Extrapolation, SlideInUp, Easing } from 'react-native-reanimated';
 import { useTheme } from 'styled-components/native';
 
@@ -8,6 +8,16 @@ import { SearchInput } from '@components/SearchInput';
 import bgImage from '@assets/imageIntro.png';
 
 import { Container, IntroContainer, IntroImage, Title } from "./styles";
+import { HighlightList } from '@components/HighlightList';
+
+export type Product = {
+  id: string;
+  tag: string;
+  name: string;
+  price: number;
+  image: ImageSourcePropType;
+  description: string;
+}
 
 export function Home() {
   const { COLORS } = useTheme();
@@ -51,6 +61,8 @@ export function Home() {
 
             <IntroImage resizeMode='cover' source={bgImage} />
           </IntroContainer>
+
+          <HighlightList />
         </Animated.View>
       </Container>     
     </SafeAreaView>
