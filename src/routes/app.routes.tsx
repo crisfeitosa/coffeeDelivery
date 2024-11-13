@@ -12,8 +12,8 @@ export function AppRoutes() {
   return (
     <Navigator initialRouteName='splash' screenOptions={{ 
       headerShown: false,
-      // animation:'slide_from_right',
-      // animationDuration: 250,
+      animation:'slide_from_right',
+      animationDuration: 250,
 
       statusBarStyle: 'light',
       statusBarTranslucent: true,
@@ -39,7 +39,7 @@ export function AppRoutes() {
           statusBarStyle: 'light',
           statusBarTranslucent: true,
           statusBarColor: 'transparent',    
-          // animationTypeForReplace: 'push'
+          animationTypeForReplace: 'push'
         }}
       />
 
@@ -54,7 +54,7 @@ export function AppRoutes() {
       />
 
       <Screen 
-        name='purchase-completed'
+        name='purchaseCompleted'
         component={PurchaseCompleted}
         options={{
           statusBarStyle: 'dark',
