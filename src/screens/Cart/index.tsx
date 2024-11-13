@@ -26,16 +26,12 @@ export const Cart: React.FC = () => {
 
   const swipeableRefs = useRef<Swipeable[]>([]);
 
-  function closeSwipeable(index: number) {
-    swipeableRefs.current?.[index].close();
-  };
-
-  async function remove(item: StorageCartItemProps, index: number) {
+  async function remove(item: StorageCartItemProps) {
     await removeProductCart(item.id);
   };
 
-  function handleRemove(item: StorageCartItemProps, index: number) {
-    remove(item, index);
+  function handleRemove(item: StorageCartItemProps) {
+    remove(item);
   };
 
   return (
@@ -69,13 +65,13 @@ export const Cart: React.FC = () => {
                       <Trash size={RFValue(32)} color={THEME.COLORS.RED_DARK} />
                     </SwipeableRemoveContainer>
                   )}
-                  onSwipeableOpen={() => handleRemove(item, index)}
+                  onSwipeableOpen={() => handleRemove(item)}
                   renderRightActions={() => null}
                 >
                   <CartItem
                     data={item}
                     index={index}
-                    onRemoveProduct={() => handleRemove(item, index)}
+                    onRemoveProduct={() => handleRemove(item)}
                   />
                 </SwipeableCard>
               </Animated.View>

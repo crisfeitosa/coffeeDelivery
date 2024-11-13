@@ -6,16 +6,16 @@ import { priceFormatter } from "@utils/currencyFormater";
 import { Container, Row, Label, Value } from "./styles";
 
 export const Order: React.FC = () => {
-  const { cart, clearCart } = useCart();
   const navigation = useNavigation();
+  const { cart, clearCart } = useCart();
 
   const total = cart.reduce(
     (acc, item) => (acc += item.price * item.quantity),
     0
   );
 
-  const handleNavigateToPurchaseCompleted = () => {
-    clearCart();
+  async function handleNavigateToPurchaseCompleted() {
+    await clearCart();
     navigation.navigate("purchaseCompleted");
   };
 
@@ -29,7 +29,7 @@ export const Order: React.FC = () => {
       <Button
         name="Confirmar pedido"
         color="SECONDARY"
-        onPress={() => handleNavigateToPurchaseCompleted()}
+        onPress={handleNavigateToPurchaseCompleted}
       />
     </Container>
   );

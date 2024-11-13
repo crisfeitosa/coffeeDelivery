@@ -210,7 +210,6 @@ export function Home() {
               keyExtractor={(item, index) => String(item?.id)}
               renderSectionHeader={(data) => renderSectionHeader(data)}
               onViewableItemsChanged={(items) => onViewableItemsChanged(items)}
-            
               contentContainerStyle={{
                 gap: RFValue(32), 
                 paddingTop: RFValue(8), 

@@ -10,7 +10,7 @@ type CartContextData = {
   cart: StorageCartItemProps[];
   addProductCart: (product: StorageCartItemProps) => Promise<void>;
   removeProductCart: (productId: string) => Promise<void>;
-  clearCart: () => void;
+  clearCart: () => Promise<void>;
 }
 
 export const CartContext = createContext<CartContextData>({} as CartContextData);
